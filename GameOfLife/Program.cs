@@ -3,7 +3,7 @@ using System.Threading;
 
 namespace GameOfLife
 {
-    class Program
+    static class Program
     {
         static void Main(string[] args)
         {
@@ -40,10 +40,8 @@ namespace GameOfLife
             bool[,] newWorld = new bool[width, height];
 
             for (int y = 0; y < height; y++)
-            {
                 for (int x = 0; x < width; x++)
                 {
-                    //cell
                     int aliveNeighbours = 0;
 
                     //neighbours
@@ -59,7 +57,6 @@ namespace GameOfLife
 
                     newWorld[x, y] = world[x, y] ? aliveNeighbours >= 2 && aliveNeighbours <= 3 : aliveNeighbours == 3;
                 }
-            }
 
             world = newWorld;
         }
@@ -71,9 +68,7 @@ namespace GameOfLife
             for (int y = 0; y < world.GetLength(1); y++)
             {
                 for (int x = 0; x < world.GetLength(0); x++)
-                {
                     gen += world[x, y] ? "■" : " ";
-                }
                 gen += "\n";
             }
             Console.Write(gen);
