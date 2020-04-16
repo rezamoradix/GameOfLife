@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Net;
-using System.Net.Sockets;
-using System.Text;
-using System.Text.Json;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace GameOfLife
 {
@@ -22,7 +15,7 @@ namespace GameOfLife
                 Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction. */
 
             // Dimension
-            int width = 20;
+            int width = 40;
             int height = 20;
 
             bool[,] world = new bool[width, height];
@@ -36,7 +29,7 @@ namespace GameOfLife
             {
                 Draw(world);
                 GenNextGen(ref world);
-                Thread.Sleep(250);
+                Thread.Sleep(1000);
             }
         }
 
